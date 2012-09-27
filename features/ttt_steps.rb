@@ -30,5 +30,5 @@ Given /^a game has started$/ do
 end
 
 When /^I choose player "(.*?)"$/ do |player|
-  game.choose_player('X')
+  game.choose_player(player)
 end
