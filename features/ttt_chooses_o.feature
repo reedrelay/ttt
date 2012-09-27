@@ -6,6 +6,6 @@ Feature: player chooses O
 
 	 Scenario:
 		Given a game has started
-		When I choose O
+		When I choose player "O"
 		Then I should see ""
 		And I should see "Where would you like to play your O?:"
