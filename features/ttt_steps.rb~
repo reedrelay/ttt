@@ -1,0 +1,6 @@
+Given /^I am not playing$/ do
+end
+
+When /^I start a game$/ do
+  TicTacToe::Game.new.start
+end
