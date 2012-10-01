@@ -5,3 +5,6 @@ require 'ttt'
 
 game = TicTacToe::Game.new(STDOUT)
 game.start
+game.player(gets)
+game.make_move(gets)
+game.show_board

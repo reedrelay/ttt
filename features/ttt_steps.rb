@@ -16,8 +16,8 @@ Given /^I am not playing$/ do
 end
 
 When /^I start a game$/ do
-  game = TicTacToe::Game.new(output)
-  game.start
+  @game = TicTacToe::Game.new(output)
+  @game.start
 end
 
 Then /^I should see "([^"]*)"$/ do |message|
@@ -25,10 +25,19 @@ Then /^I should see "([^"]*)"$/ do |message|
 end
 
 Given /^a game has started$/ do
-  game = TicTacToe::Game.new(output)
-  game.start
+  @game = TicTacToe::Game.new(output)
+  @game.start
 end
 
-When /^I choose player "(.*?)"$/ do |player|
-  game.choose_player(player)
+When /^I choose player "([^"]*)"$/ do |player|
+  @game.player(player)
+end
+
+
+When /^I play "([^"]*)"$/ do |move|
+  @game.make_move(move)
+end
+
+Then /^the stdout should include$/ do |text|
+  output.messages.should include(text)
 end
