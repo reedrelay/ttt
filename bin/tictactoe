@@ -13,7 +13,7 @@ if game.player_goes_first
 end
 
 while(!game.over?)
-  game.opponent.move
+  game.opponent_move
   game.show_board
   game.make_move(gets)
   game.show_board

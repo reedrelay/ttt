@@ -15,15 +15,20 @@ module TicTacToe
       @player = player
       
       move_usage(@player)
-      @opponent.player(other_player(@player))
+      @opponent.player(other_player)
     end
 
     def other_player
       if @player == 'X'
-        return 'O'
-      elsif
-        return 'X'
+        my_opponent = "O"
+      else
+        my_opponent = "X"
       end
+      return my_opponent
+    end
+
+    def opponent_move
+      @opponent.move(@board)
     end
 
     def player_goes_first
@@ -33,7 +38,7 @@ module TicTacToe
     end
 
     def move_usage(player)
-      @output.puts 'Where would you like to play your #{player} ?:'
+      @output.puts "Where would you like to play your #{player} ?:"
       @output.puts 'abc   The board diagram at left shows'
       @output.puts 'def   where your choice will go'
       @output.puts 'ghi   on the grid.'
@@ -132,26 +137,33 @@ module TicTacToe
     end
       
     def score_sequence(seq)
+      matches = 1
+      player = ' '
+      
       if seq[0] != ' '
         if seq[0] == seq[1]
           if seq[1] == seq[2]
-            return 3, seq[0]
-          elsif
-            return 2, seq[0]
+            matches = 3
+            player = seq[0]
+          else
+            matches = 2
+            player = seq[0]
           end
         elsif seq[1] != ' '
           if seq[1] == seq[2]
-            return 2, seq[1]
+            matches = 2
+            player = seq[1]
           end
         end
       elsif seq[1] != ' '
         if seq[1] == seq[2]
-          return 2, seq[1]
+          matches = 2
+          player = seq[1]
         end
       end
-      return 1, seq[0]
+      return matches, player
     end
-
+    
   end
   
 
@@ -186,9 +198,11 @@ module TicTacToe
     end 
 
     def show
+      @output.puts "---"
       @output.puts @grid[0..2]
       @output.puts @grid[3..5]
       @output.puts @grid[6..8]
+      @output.puts "---"
     end
 
     def row(n)
@@ -228,7 +242,7 @@ module TicTacToe
   end
 
   class Opponent
-    def initialize
+    def initialize(output)
       @output = output
     end
     
