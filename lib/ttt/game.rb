@@ -18,8 +18,8 @@ module TicTacToe
       @opponent.player(other_player(@player))
     end
 
-    def other_player(player)
-      if player == 'X'
+    def other_player
+      if @player == 'X'
         return 'O'
       elsif
         return 'X'
@@ -127,12 +127,11 @@ module TicTacToe
         if seq[i] == ' '
           return ' '
         end
-
-        return seq[0]
       end
-
+        return seq[0]
+    end
+      
     def score_sequence(seq)
-
       if seq[0] != ' '
         if seq[0] == seq[1]
           if seq[1] == seq[2]
@@ -150,11 +149,14 @@ module TicTacToe
           return 2, seq[1]
         end
       end
-        return 1, seq[0]
-      end
+      return 1, seq[0]
     end
 
   end
+  
+
+  
+
 
   class Board
     def initialize(output)
@@ -225,7 +227,7 @@ module TicTacToe
 
   end
 
-  class Opponent(output)
+  class Opponent
     def initialize
       @output = output
     end
@@ -278,3 +280,4 @@ module TicTacToe
     end
   end
 end
+
