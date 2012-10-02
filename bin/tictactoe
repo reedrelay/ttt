@@ -5,6 +5,18 @@ require 'ttt'
 
 game = TicTacToe::Game.new(STDOUT)
 game.start
-game.player(gets)
-game.make_move(gets)
-game.show_board
+game.set_player(gets)
+
+if game.player_goes_first
+  game.make_move(gets)
+  game.show_board
+end
+
+while(!game.over?)
+  game.opponent.move
+  game.show_board
+  game.make_move(gets)
+  game.show_board
+end
+
+game.show_end_state
