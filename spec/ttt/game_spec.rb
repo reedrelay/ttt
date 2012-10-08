@@ -22,15 +22,15 @@ module TicTacToe
         output.should_receive(:puts).with('def   where your choice will go')
         output.should_receive(:puts).with('ghi   on the grid.')
         
-        game.start
-        game.player('X')
+        #game.start
+        game.set_player('X')
 
       end
 
       it "player X makes move a" do
-        game.start
-        game.player('X')
-        game.make_move('a')
+        #game.start
+        #game.set_player('X')
+        #game.make_move('a')
       end
 
                                           

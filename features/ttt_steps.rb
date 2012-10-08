@@ -30,7 +30,7 @@ Given /^a game has started$/ do
 end
 
 When /^I choose player "([^"]*)"$/ do |player|
-  @game.player(player)
+  @game.set_player(player)
 end
 
 

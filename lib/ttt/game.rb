@@ -38,7 +38,7 @@ module TicTacToe
     end
 
     def move_usage(player)
-      @output.puts "Where would you like to play your #{player} ?:"
+      @output.puts "Where would you like to play your #{player}?:"
       @output.puts 'abc   The board diagram at left shows'
       @output.puts 'def   where your choice will go'
       @output.puts 'ghi   on the grid.'

@@ -7,10 +7,8 @@ Feature: player chooses X
 	 Scenario:
 		Given a game has started
 		When I choose player "X"
-		Then the stdout should include
-		   """
-		   Where would you like to play your X?:"
-		   abc   The board diagram at left shows
-		   def   where your choice will go
-		   ghi   on the grid.
-		   """		   
+Then I should see "Where would you like to play your X?:"
+And I should see "abc   The board diagram at left shows"
+And I should see "def   where your choice will go"
+And I should see "ghi   on the grid."
+
