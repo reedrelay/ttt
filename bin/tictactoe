@@ -5,17 +5,20 @@ require 'ttt'
 
 game = TicTacToe::Game.new(STDOUT)
 game.start
-game.set_player(gets)
+game.set_player(gets.chomp)
 
-if game.player_goes_first
-  game.make_move(gets)
+if game.player_goes_first?
+  game.make_move(gets.chomp)
+  puts "Your move:"
   game.show_board
 end
 
 while(!game.over?)
+  puts "Computer move:"
   game.opponent_move
   game.show_board
-  game.make_move(gets)
+  puts "Your move:"
+  game.make_move(gets.chomp)
   game.show_board
 end
 

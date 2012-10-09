@@ -16,6 +16,11 @@ module TicTacToe
       
       move_usage(@player)
       @opponent.player(other_player)
+
+      if !player_goes_first?
+        @output.puts 'The computer player will go first, playing X.'
+      end
+
     end
 
     def other_player
@@ -31,9 +36,11 @@ module TicTacToe
       @opponent.move(@board)
     end
 
-    def player_goes_first
+    def player_goes_first?
       if @player == 'X'
         return true
+      else
+        return false
       end
     end
 
@@ -54,6 +61,10 @@ module TicTacToe
 
     def show_end_state
       @board.show
+    end
+
+    def show_player
+      puts "Player plays " + @player
     end
 
     def over?
@@ -199,9 +210,9 @@ module TicTacToe
 
     def show
       @output.puts "---"
-      @output.puts @grid[0..2]
-      @output.puts @grid[3..5]
-      @output.puts @grid[6..8]
+      @output.puts @grid[0..2].join
+      @output.puts @grid[3..5].join
+      @output.puts @grid[6..8].join
       @output.puts "---"
     end
 

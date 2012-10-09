@@ -16,7 +16,7 @@ module TicTacToe
         game.start
       end
 
-      it "player chooses X" do
+      it "has player choosing X" do
         output.should_receive(:puts).with('Where would you like to play your X?:')
         output.should_receive(:puts).with('abc   The board diagram at left shows')
         output.should_receive(:puts).with('def   where your choice will go')
@@ -24,6 +24,18 @@ module TicTacToe
         
         #game.start
         game.set_player('X')
+
+      end
+
+      it "has player choosing O" do
+        output.should_receive(:puts).with('The computer player will go first, playing X.')
+        output.should_receive(:puts).with('Where would you like to play your O?:')
+        output.should_receive(:puts).with('abc   The board diagram at left shows')
+        output.should_receive(:puts).with('def   where your choice will go')
+        output.should_receive(:puts).with('ghi   on the grid.')
+        
+        #game.start
+        game.set_player('O')
 
       end
 

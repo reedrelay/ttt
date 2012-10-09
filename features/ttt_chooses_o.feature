@@ -9,3 +9,6 @@ Feature: player chooses O
 		When I choose player "O"
 		Then I should see "The computer player will go first, playing X."
 		And I should see "Where would you like to play your O?:"
+		And I should see "abc   The board diagram at left shows"
+		And I should see "def   where your choice will go"
+		And I should see "ghi   on the grid."
